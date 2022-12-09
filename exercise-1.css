@@ -1,0 +1,123 @@
+* {
+    margin:0;
+}
+html,body {
+    width: 100%;
+    height:100vh;
+}
+.b-grid {
+    display: flex;
+    flex-wrap: wrap;
+    height:90vh;
+    justify-content: space-evenly;
+    align-content: space-evenly;
+}
+
+.b-grid img {
+    width: 100px;
+    margin: 10px;
+    border: 3px solid #48ffc2;
+    border-radius: 10px;
+    background-color: aquamarine;
+}
+
+.game-board {
+    width:50%;
+    margin: auto;
+}
+
+
+h3 {
+    margin: 1rem;
+    height:10vh;
+    display: inline;
+    
+}
+.card {
+    background-color: transparent;
+    width: 200px;
+    height: 150px;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.card-content {
+position: relative;
+width: 100%;
+height: 100%;
+text-align: center;
+transition: transform 0.8s;
+transform-style: preserve-3d;
+
+
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.success .card-content, .selected .card-content {
+transform: rotateY(180deg);
+}
+
+.success {
+    box-shadow: 0 4px 8px 0 rgb(60, 255, 60), 0 6px 20px 0 rgb(162, 255, 146);
+}
+
+/* Position the front and back side */
+.card-front, .card-back {
+position: absolute;
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 100%;
+-webkit-backface-visibility: hidden;
+backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.card-front {
+background-color: aquamarine;
+color: blue;
+}
+
+/* Style the back side */
+.card-back {
+background-color: dodgerblue;
+color: white;
+transform: rotateY(180deg);
+}
+
+.modal {
+    opacity: 0;
+    position:fixed;
+    z-index:1;
+    left:0;
+    top:0;
+    width:100vw;
+    height:100vh;
+    background-color: rgba(255,255,255,0.5);
+    transition: opacity 1s 1s ease-in;
+}
+
+.modal-content {
+    display: flex;
+    flex-wrap: wrap;
+    width: inherit;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-show {
+    opacity: 1;
+}
+
+.modal-content h3 {
+    font-size: 4rem;
+}
+
+.modal-content .score {
+    color:aquamarine;
+    text-shadow: 2px 2px 2px black
+    ;
+}
